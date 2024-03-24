@@ -67,14 +67,17 @@ const Login = ({ setAccount }) =>{
     const handleClick = async() => {
         const { token } = await handleClickLogin(inputData, fieldData, setFieldData);
 
-        Cookies.set("token", token, {expires: 1/24});
+        Cookies.set("token", token, {expires: 3600000});
 
         const [header, payload, signature] = token.split('.');
 
         const decodedPayload = JSON.parse(atob(payload));
 
-        header && signature && setIsUser(true) && setUser(decodedPayload);
+        if (!header || !signature) return;
 
+        setIsUser(true);
+        setUser(decodedPayload);
+        
         navigate("/");
     }
 

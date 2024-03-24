@@ -72,7 +72,7 @@ const Content = ({ blogs, content, setContent }) => {
         window.location.href = "/create-new-blog"
     }
 
-    if (!content){
+    if (!content && blogs){
         Promise.all(blogs.filter(blog => blog.privacy === "Public"))
         .then((filteredBlogs) => setContent(filteredBlogs));
     }

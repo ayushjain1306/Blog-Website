@@ -1,8 +1,10 @@
-import React, { useContext } from 'react';
-import { Box, Button, List, ListItem, styled } from "@mui/material";
-import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from '../../context/userContext';
-import Cookies from "js-cookie";
+import React, { useState, useContext } from 'react';
+import { Box, Typography, Button, List, ListItem, styled } from "@mui/material";
+import { styled as scStyled } from "styled-components";
+import { Link } from "react-router-dom";
+import userImage from "./images/user.png";
+import { UserContext } from "../../context/userContext.js";
+import ProfileList from "./ProfileList.jsx";
 
 const NewBox = styled(Box)`
     width: 50%;
@@ -25,10 +27,11 @@ const ListItems = styled(ListItem)`
 `
 
 const NewButton = styled(Button)`
-    width: 21%;
+    width: 23%;
     font-weight: bold;
     background-color: whitesmoke;
     color: #1100ab;
+    margin-left: 2vw;
 
     &:hover {
         background-color: white;
@@ -40,30 +43,38 @@ const NewLink = styled(Link)`
     text-decoration: none;
 `
 
+const Image = scStyled.img`
+    height: 20px;
+    width: 20px;
+    margin-right: 1vw;
+`
+
+const Typo = styled(Typography)`
+    font-weight: bold;
+    font-size: 15px;
+`
+
 const SecondSection = () => {
-    const { setIsUser, setUser } = useContext(UserContext);
-    const navigate = useNavigate();
+    const [open, setOpen] = useState(false);
+    const { user } = useContext(UserContext);
 
     const handleClick = () => {
-        document.getElementById("loader").style.display = "block";
-    
-        setIsUser(false);
-        setUser(null);
-
-        Cookies.remove('token');
-        navigate("/login");
-
-        document.getElementById("loader").style.display = "none";
+        setOpen(!open);
     }
 
     return (
         <NewBox>
             <NewList>
                 <ListItems><NewLink to ="/">Home</NewLink></ListItems>
-                <NewButton variant = "contained" onClick = {() => handleClick()}>
-                    Log Out
+                <NewButton variant = "contained" onClick={() => handleClick()}>
+                    <Image src={userImage} alt="user" />
+                    <Typo>{user.username}</Typo>
                 </NewButton>
             </NewList>
+
+            {
+                open && <ProfileList />
+            }
         </NewBox>
     )
 }
