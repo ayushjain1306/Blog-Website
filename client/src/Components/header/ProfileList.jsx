@@ -49,7 +49,7 @@ const ProfileList = () => {
 
     return (
         <NewList>
-            <NewListItem><Link to="/dashboard" style={{color: "inherit", textDecoration: "inherit"}}>Your Profile</Link></NewListItem>
+            <NewListItem><Link to="/profile" style={{color: "inherit", textDecoration: "inherit"}}>Your Profile</Link></NewListItem>
             <NewButton variant="contained" onClick={() => handleClick()}>Log Out</NewButton>
 
             {

@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Box, TextField, styled } from "@mui/material";
 import { styled as scStyled } from "styled-components";
-import send from "./images/send.png";
+import send from "../openBlogs/images/send.png";
 import addComment from "../../service/addComment.js";
+import { UserContext } from "../../context/userContext.js";
+import Cookies from "js-cookie";
 
 const NewBox = styled(Box)`
     margin-top: 25px;
@@ -25,18 +27,8 @@ const Image = scStyled.img`
 
 const InputSection = ({ blog }) => {
     const [fieldData, setFieldData] = useState("");
-
-    const token = localStorage.getItem("token");
-
-    const [header, payload, signature] = token.split(".");
-
-    const decodedPayload = JSON.parse(atob(payload));
-
-    const username = "";
-
-    if (header && signature){
-        username = decodedPayload.username;
-    }
+    const { user } = useContext(UserContext);
+    const token = Cookies.get("token");
 
     const handleChange = (e) => {
         setFieldData(e.target.value);
@@ -48,12 +40,12 @@ const InputSection = ({ blog }) => {
         }
 
         const data = {
-            username,
+            username: user.username,
             blogId: blog._id,
             comment: fieldData
         }
 
-        await addComment(data);
+        await addComment(data, token);
     }
 
     return (

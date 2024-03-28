@@ -1,10 +1,12 @@
 import React, { useEffect, useContext } from "react";
 import { Box, styled } from "@mui/material";
 import { Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Header from "../header/Header.jsx";
 import { UserContext } from "../../context/userContext.js";
 import { useNavigate } from "react-router-dom";
 import SideBar from "./SideBar.jsx";
+import extractBlogs from "../../redux/actions/extractBlogs.js";
 
 const NewBox = styled(Box)`
     background-color: rgb(0 150 136 / 15%);
@@ -16,6 +18,7 @@ const NewBox = styled(Box)`
 const Dashboard = () => {
     const navigate = useNavigate();
     const { isUser } = useContext(UserContext);
+    const dispatch = useDispatch();
 
     const check = () => {
         if (!isUser){
@@ -27,7 +30,9 @@ const Dashboard = () => {
     }
 
     useEffect(() => {
-        check();
+        if (check()){
+            dispatch(extractBlogs());
+        }
     }, []);
 
     return (

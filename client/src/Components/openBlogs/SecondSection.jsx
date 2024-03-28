@@ -3,7 +3,7 @@ import { Box, Typography, styled } from "@mui/material";
 
 const NewBox = styled(Box)`
     width: 60%;
-    background-color: #e3e3e3;
+    background-color: rgba(25, 118, 210, 0.2);
     margin: 15px;
     border-radius: 5px;
     padding-top: 15px;

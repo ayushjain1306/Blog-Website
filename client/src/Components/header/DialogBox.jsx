@@ -21,7 +21,7 @@ const DialogBox = ({ open, setOpen }) => {
         Cookies.remove("token");
         setIsUser(false);
         setUser(null);
-        navigate('login');
+        navigate('/login');
     }
 
     return (

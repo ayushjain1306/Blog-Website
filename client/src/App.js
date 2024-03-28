@@ -7,6 +7,8 @@ import Home from './Components/home/Home.jsx';
 import Dashboard from "./Components/dashboard/Dashboard.jsx";
 import CreateBlog from "./Components/createBlog/CreateBlog.jsx";
 import OpenBlog from "./Components/openBlogs/OpenBlog.jsx";
+import Profile from "./Components/dashboard/Profile.jsx";
+import Blogs from "./Components/dashboard/Blogs.jsx";
 
 function App() {
 
@@ -18,10 +20,14 @@ function App() {
           <Route path='/signup' element={<Account />} />
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
-          <Route path = "/create-blog" element = {<CreateBlog />} />
-          <Route path = "/blog" element = {<OpenBlog />} />
-          <Route path='/dashboard' element={<Dashboard/>}>
-            {/* <Route path='/' /> */}
+          <Route path="/create-blog" element={<CreateBlog />} />
+          <Route path="/blog" element={<OpenBlog />} />
+          <Route path='/profile' element={<Dashboard/>}>
+            <Route index element={<Profile />} />
+            <Route path='blogs' element={<Blogs />} />
+            <Route index element={<Profile />} />
+            <Route index element={<Profile />} />
+            <Route index element={<Profile />} />
           </Route>
         </Routes>
       </BrowserRouter>

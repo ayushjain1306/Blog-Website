@@ -4,8 +4,8 @@ import DialogBox from "./DialogBox.jsx";
 import AnotherDialogBox from "./AnotherDialogBox.jsx";
 
 const NewBox = styled(Box)`
-    margin: 80px 15px 15px 15px;
-    background-color: #e3e3e3;
+    margin: 0px 15px 15px 15px;
+    background-color: rgba(25, 118, 210, 0.2);
     border-radius: 5px;
 `
 

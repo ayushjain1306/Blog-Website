@@ -24,6 +24,9 @@ const userSchema = new mongoose.Schema({
     token: {
         type: 'string',
         required: true
+    },
+    description: {
+        type: "string"
     }
 })
 

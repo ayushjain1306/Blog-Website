@@ -2,15 +2,15 @@ import axios from "axios";
 
 const URL = "http://localhost:8000";
 
-async function addComment(data, token) {
+async function editComment(data, token){
     try {
         const headers = {
             "Authorization": token
         }
 
-        await axios.post(`${URL}/add-comment`, data, { headers });
+        await axios.put(`${URL}/edit-comment`, data, { headers });
 
-        alert("Comment added successfully.");
+        alert("Comment updated successfully.");
 
         window.location.reload();
     }
@@ -19,4 +19,4 @@ async function addComment(data, token) {
     }
 }
 
-export default addComment;
+export default editComment;

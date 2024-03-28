@@ -6,7 +6,7 @@ async function addComment(request, response) {
 
         await Comments.create(comment);
 
-        response.status(200).json({message: "Blog created successfully."});
+        response.status(200).json({message: "Comment added successfully."});
     }
     catch (error){
         response.status(500).json({message: error.message});
@@ -17,7 +17,7 @@ async function getComments(request, response){
     try {
         const blogId = request.params.blogId;
 
-        const comments = Comments.find({blogId});
+        const comments = await Comments.find({blogId});
 
         response.status(200).json(comments);
     }
@@ -28,10 +28,9 @@ async function getComments(request, response){
 
 async function updateComment(request, response){
     try {
-        const commentId = request.params.commentId;
         const newComment = request.body;
 
-        await Comments.updateOne({"_id": commentId}, newComment);
+        await Comments.updateOne({"_id": newComment._id}, newComment);
 
         response.status(200).json({message: "Comment updated successfully."});
     }

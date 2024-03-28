@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+#All {
+  border: 1px solid #1100ab;
+}
+
 #loader {
   border: 5px solid #e3e3e3;
   position: absolute;

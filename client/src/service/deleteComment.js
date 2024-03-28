@@ -2,15 +2,15 @@ import axios from "axios";
 
 const URL = "http://localhost:8000";
 
-async function addComment(data, token) {
+async function deleteComment(id, token){
     try {
         const headers = {
             "Authorization": token
         }
 
-        await axios.post(`${URL}/add-comment`, data, { headers });
+        await axios.delete(`${URL}/delete-comment/${id}`, { headers });
 
-        alert("Comment added successfully.");
+        alert("Comment deleted successfully.");
 
         window.location.reload();
     }
@@ -19,4 +19,4 @@ async function addComment(data, token) {
     }
 }
 
-export default addComment;
+export default deleteComment;
