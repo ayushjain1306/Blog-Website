@@ -12,6 +12,14 @@ const NewTextField = styled(TextField)`
     margin-top: 15px;
 `
 
+const DialogContentType = styled(DialogContentText)`
+    width: 30%;
+    
+    @media screen and (max-width: 500px){
+        width: 100%;
+    }
+`
+
 const DialogBox = ({ open, setOpen, description, token }) => {
     const [fieldData, setFieldData] = useState(description);
 
