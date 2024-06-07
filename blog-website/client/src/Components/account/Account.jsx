@@ -15,7 +15,7 @@ const NewBox = styled(Box)`
     @media screen and (max-width: 500px){
         width: 100vw;
         height: 90vh;
-        background-color: rgba(25, 118, 210, 0.2);
+        background-color: rgba(25, 118, 210, 0.1);
         padding-top: 10vh;
     }
 
