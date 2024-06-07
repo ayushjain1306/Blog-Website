@@ -12,7 +12,7 @@ const NewTextField = styled(TextField)`
     margin-top: 15px;
 `
 
-const DialogContentType = styled(DialogContentText)`
+const DialogContentTypo = styled(DialogContentText)`
     width: 30%;
     
     @media screen and (max-width: 500px){
@@ -42,9 +42,9 @@ const DialogBox = ({ open, setOpen, description, token }) => {
     return (
         <Dialog open={open} onClose={() => handleClose()}>
             <DialogContent>
-                <DialogContentText style={{width: "30vw"}}>
+                <DialogContentTypo>
                     Make the changes in the given textfield.
-                </DialogContentText>
+                </DialogContentTypo>
                 <NewTextField variant="standard" defaultValue={description} onChange={(e) => handleChange(e)} />
             </DialogContent>
 
