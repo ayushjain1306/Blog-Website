@@ -13,12 +13,7 @@ export const performSignup = async (data) => {
         window.location.reload();
     }
     catch(error) {
-        if (error.message === "Network Error"){
-            alert("Check yout Network Connection");
-        }
-        else {
-            console.log(error.message);
-        }
+        alert("Failed to Create Account. Try again later!");
     }
 
     document.getElementById("loader").style.display= "none";
@@ -34,12 +29,7 @@ export const performLogin = async(data) => {
         return response.data;
     }
     catch (error){
-        if (error.message === "Network Error"){
-            alert("Check your network connection.");
-        }
-        else {
-            console.log(error.message);
-        }
+        alert("Failed to Log In. Try again later!");
     }
     
     document.getElementById("loader").style.display= "none";
