@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = "https://blog-website-nine-lemon.vercel.app/";
+const URL = "https://blog-website-nine-lemon.vercel.app";
 
 async function deleteBlog(data){
     try {
