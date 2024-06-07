@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'https://blog-website-nine-lemon.vercel.app/';
+const URL = 'https://blog-website-nine-lemon.vercel.app';
 
 export const performSignup = async (data) => {
     document.getElementById("loader").style.display = "block";
