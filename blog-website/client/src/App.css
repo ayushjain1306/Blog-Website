@@ -7,7 +7,7 @@
 }
 
 #loader {
-  /* border: 5px solid lightgrey; */
+  border: 5px solid inherit;
   position: fixed;
   border-right-color: #1100ab;
   height: 40px;
