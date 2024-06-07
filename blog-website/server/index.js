@@ -7,7 +7,7 @@ import connectionWithDatabase from "./database/db.js";
 const app = express();
 
 app.use(cors({
-    origin: "https://blo-web.com",
+    origin: "https://blo-web.vercel.app",
     methods: ["POST", "GET", "PUT", "DELETE", "PATCH", "OPTIONS"],
     credentials: true
 }));
