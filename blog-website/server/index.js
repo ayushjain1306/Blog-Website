@@ -6,7 +6,11 @@ import connectionWithDatabase from "./database/db.js";
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: "https://blo-web.com",
+    methods: ["POST", "GET", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    credentials: true
+}));
 
 app.use(bodyParser.json({extended: true}));
 app.use(bodyParser.urlencoded({extended: true}));

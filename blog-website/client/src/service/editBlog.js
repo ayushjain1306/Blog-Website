@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = "http://localhost:8000";
+const URL = "https://blog-website-nine-lemon.vercel.app/";
 
 async function editBlog(data){
     try {

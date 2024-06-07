@@ -31,7 +31,7 @@ const Container = styled(Box)`
 
     @media screen and (max-width: 500px){
         padding-top: 0px;
-        height: 100vh;
+        height: vh;
         background-color: white;
     }
 

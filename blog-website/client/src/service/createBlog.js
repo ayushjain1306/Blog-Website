@@ -1,7 +1,7 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const URL = "http://localhost:8000";
+const URL = "https://blog-website-nine-lemon.vercel.app/";
 
 async function createBlog(data){
     try {
