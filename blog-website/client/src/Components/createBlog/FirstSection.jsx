@@ -12,7 +12,7 @@ const NewBox = styled(Box)`
 const Image = scStyled.img`
     width: 50vw;
     height: 60vh;
-    border-radius: 5px;
+    border-radius: 3px;
 
     @media screen and (max-width: 500px){
         width: 75vw;

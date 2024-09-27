@@ -11,14 +11,14 @@ import Cookies from "js-cookie";
 import Footer from "../footer/Footer.jsx";
 
 const NewBox = styled(Box)`
-    background-color: rgb(0 150 136 / 15%);
+    background-color: #ebebe9;
     min-height: 100vh;
     padding-top: 12vh;
 `
 
 const AnotherBox = styled(Box)`
     font-size: 20px;
-    background-color: rgb(0 150 136 / 15%);
+    background-color: #ebebe9;
     min-height: 90vh;
     margin-top: 10vh;
 `

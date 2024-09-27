@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 
 const AnotherBox = styled(Box)`
     margin-top: 60px;
-    background-color: rgb(0 150 136 / 15%);
+    background-color: #ebebe9;
     padding-top: 50px;
     padding-bottom: 50px;
 

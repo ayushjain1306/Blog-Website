@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { List, ListItem, Button, styled } from "@mui/material";
+import { List, ListItem, styled } from "@mui/material";
 import { Link } from "react-router-dom";
 import DialogBox from "./DialogBox.jsx";
 
@@ -11,8 +11,7 @@ const NewList = styled(List)`
     padding-top: 10px;
     top: 10vh;
     right: 12vw;
-    border-radius: 5px;
-    height: 15vh;
+    border-radius: 3px;
 
     @media screen and (min-width: 500px) and (max-width: 1100px){
         top: 9vh;
@@ -25,48 +24,22 @@ const NewList = styled(List)`
 const NewListItem = styled(ListItem)`
     color: black;
     justify-content: center;
-    margin-bottom: 10px;
     width: 100%;
-    color: #1100ab;
-    font-weight: bold;
+    font-weight: 600;
     cursor: pointer;
-    
-    &:hover {
-        text-decoration: underline;
-    }
 
     @media screen and (min-width: 500px) and (max-width: 1100px){
         font-size: 25px;
-        margin-bottom: 18px;
-    }
-`
-
-const NewButton = styled(Button)`
-    background-color: #1100ab;
-    font-weight: bold;
-    width: 80%;
-
-    &:hover {
-        background-color: #1100ab;
-        opacity: 0.9;
-    }
-
-    @media screen and (min-width: 500px) and (max-width: 1100px){
-        font-size: 20px;
     }
 `
 
 const ProfileList = () => {
     const [open, setOpen] = useState(false);
 
-    const handleClick = () => {
-        setOpen(true);
-    }
-
     return (
         <NewList>
             <NewListItem><Link to="/profile" style={{color: "inherit", textDecoration: "inherit"}}>Your Profile</Link></NewListItem>
-            <NewButton variant="contained" onClick={() => handleClick()}>Log Out</NewButton>
+            <NewListItem onClick={() => setOpen(true)}>Log Out</NewListItem>
 
             {
                 open && <DialogBox open={open} setOpen={setOpen} />

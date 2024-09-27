@@ -4,20 +4,18 @@ import { Link } from "react-router-dom";
 import DeleteDialogBox from "./DeleteDialogBox.jsx";
 
 const NewBox = styled(Box)`
-    background-color: rgba(25, 118, 210, 0.2);
+    background-color: whitesmoke;
     padding-left: 20px;
     color: #1100ab;
     padding-top: 10vh;
+    box-shadow: 3px 8px 8px -3px rgb(0, 0, 0, 0.2);
 `
 
 const NewListItem = styled(ListItem)`
     width: 15%;
     justify-content: center;
     font-weight: bold;
-
-    &:hover {
-        text-decoration: underline;
-    }
+    cursor: pointer;
 
     @media screen and (max-width: 500px){
         width: 45%;

@@ -2,13 +2,7 @@ import React from "react";
 import { Button, styled, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, } from "@mui/material";
 
 const NewButton = styled(Button)`
-    background-color: #1100ab;
     font-weight: bold;
-
-    &: hover {
-        background-color: #1100ab;
-        opacity: 0.9;
-    }
 `
 
 const DialogBox = ({ openDialog, setOpenDialog }) => {
@@ -39,7 +33,7 @@ const DialogBox = ({ openDialog, setOpenDialog }) => {
                 <NewButton variant = "contained" autoFocus onClick={handleClose}>
                     Cancel
                 </NewButton>
-                <NewButton variant = "contained" onClick={handleClick} autoFocus>
+                <NewButton variant = "contained" color="error" onClick={handleClick} autoFocus>
                     Discard
                 </NewButton>
             </DialogActions>

@@ -8,10 +8,14 @@ import { useSelector } from "react-redux";
 import { UserContext } from "../../context/userContext.js";
 
 const NewBox = styled(Box)`
-    width: 85%;
+    width: 93%;
     margin: auto;
     margin-top: 5vh;
     margin-bottom: 3vh;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 8px 8px 8px -3px rgb(0, 0, 0, 0.2);
+    padding: 2px 2% 3vh 2%;
 
     @media screen and (max-width: 500px){
         width: 80%;
@@ -23,17 +27,16 @@ const NewBox = styled(Box)`
 `
 
 const AnotherBox = styled(Box)`
-    background-color: rgba(25, 118, 210, 0.2);
-    width: 90%;
     text-align: center;
     padding-top: 5vh;
-    border-radius: 5px;
+    border: 1px solid #ebebe9;
+    border-radius: 3px;
     padding-bottom: 3vh;
     cursor: pointer;
     margin: auto;
 
     &:hover {
-        border: 1px solid #1100ab;
+        border: 1px solid lightgrey;
     }
 
     @media screen and (min-width: 500px) and (max-width: 1100px){
@@ -45,7 +48,7 @@ const AnotherBox = styled(Box)`
 const Image = scStyled.img`
     height: 27vh;
     width: 14vw;
-    border-radius: 6px;
+    border-radius: 3px;
 
     @media screen and (max-width: 500px){
         width: 45vw;
@@ -59,9 +62,10 @@ const Image = scStyled.img`
 `
 
 const HeadTypo = styled(Typography)`
-    text-align: center;
+    text-align: left;
     font-size: 20px;
-    margin-top: 3vh;
+    margin: auto;
+    margin-top: 2vh;
     margin-bottom: 3vh;
 
     @media screen and (min-width: 500px) and (max-width: 1100px){
@@ -73,7 +77,7 @@ const TitleTypo = styled(Typography)`
     color: #1100ab;
     font-size: 17px;
     font-weight: bold;
-    margin: 1.5vh 0px;
+    margin: 1.5vh;
 
     @media screen and (min-width: 500px) and (max-width: 1100px){
         font-size: 19px;
@@ -96,19 +100,19 @@ const ContentTypo = styled(Typography)`
 
 const responsive = {
     superLargeDesktop: {
-        breakpoint: {max: 4000, min: 3000},
+        breakpoint: { max: 4000, min: 3000 },
         items: 5
     },
     desktop: {
-        breakpoint: {max: 3000, min: 1024},
-        items: 4
+        breakpoint: { max: 3000, min: 1024 },
+        items: 5
     },
     tablet: {
-        breakpoint: {max: 1024, min: 464},
+        breakpoint: { max: 1024, min: 464 },
         items: 3
     },
     mobile: {
-        breakpoint: {max: 464, min: 0},
+        breakpoint: { max: 464, min: 0 },
         items: 1
     }
 }
@@ -141,8 +145,8 @@ const LatestBlogs = () => {
                         return (
                             <AnotherBox key={blog._id} onClick={() => handleClick(blog)}>
                                 <Image src={blog.image} alt="blog-image" />
-                                <TitleTypo>{blog.title}</TitleTypo>
-                                <ContentTypo>{blog.content.substring(0,52)}...</ContentTypo>
+                                <TitleTypo>{blog.title.length > 18 ? blog.title.substring(0, 18) + "..." : blog.title}</TitleTypo>
+                                <ContentTypo>{blog.content.substring(0, 40)}...</ContentTypo>
                             </AnotherBox>
                         )
                     })

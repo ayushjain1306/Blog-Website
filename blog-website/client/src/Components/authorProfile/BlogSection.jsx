@@ -14,8 +14,8 @@ const NewBox = styled(Box)`
 
 const AnotherBox = styled(Box)`
     width: 90%;
-    background-color: rgba(25, 118, 210, 0.2);;
-    border-radius: 5px;
+    background-color: white;;
+    border-radius: 3px;
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -41,7 +41,7 @@ const HeadTypo = styled(Typography)`
 const Image = scStyled.img`
     height: 20vh;
     width: 12vw;
-    border-radius: 5px;
+    border-radius: 3px;
 
     @media screen and (max-width: 500px){
         height: 25vh;

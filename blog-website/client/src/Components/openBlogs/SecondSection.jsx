@@ -8,7 +8,6 @@ const NewBox = styled(Box)`
     width: 30%;
     text-align: center;
     margin-top: 15px;
-    background-color: rgba(25, 118, 210, 0.2);
     padding-top: 35px;
     margin-left: 6%;
     margin-right: 20px;

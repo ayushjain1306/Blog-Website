@@ -16,6 +16,11 @@ const AnotherBox = styled(Box)`
     display: flex;
     min-height: 100vh;
     padding-bottom: 20px;
+    background-color: white;
+    box-shadow: 8px 8px 8px -3px rgb(0, 0, 0, 0.2);
+    border-radius: 3px;
+    width: 95%;
+    margin: auto;
 
     @media screen and (max-width: 500px){
         display: block;
@@ -61,7 +66,7 @@ const OpenBlog = () => {
 
     return (
         check && blog &&
-        <Box style={{paddingTop: "13vh", backgroundColor: "rgb(0 150 136 / 15%)"}}>
+        <Box style={{paddingTop: "13vh", backgroundColor: "#ebebe9"}}>
             <Header />
             {
                 blog.user === user.username && <FirstSection blog={blog} />

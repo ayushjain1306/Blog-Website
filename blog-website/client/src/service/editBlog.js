@@ -1,6 +1,5 @@
 import axios from 'axios';
-
-const URL = "https://blog-website-nine-lemon.vercel.app";
+import { URL } from "../utils/backendURL.js";
 
 async function editBlog(data){
     try {

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Box, Typography, TextField, Button, styled } from "@mui/material";
+import { Box, Backdrop, CircularProgress, TextField, Button, styled } from "@mui/material";
 import { handleClickLogin } from "./handleClick.js";
 import { UserContext } from "../../context/userContext.js";
 import Loader from "../../Loader.jsx";
@@ -8,24 +8,6 @@ import { useNavigate } from "react-router-dom";
 
 const NewBox = styled(Box)`
     text-align: center;
-`
-
-const Typo = styled(Typography)`
-    color: #1100ab;
-    font-weight: bold;
-    margin-top: 1vh;
-
-    @media screen and (max-width: 500px){
-        font-size: 18px;
-        margin-top: 1.5vh;
-        margin-bottom: 1.5vh;
-    }
-
-    @media screen and (min-width: 500px) and (max-width: 1100px){
-        font-size: 20px;
-        margin-top: 2vh;
-        margin-bottom: 2vh;
-    }
 `
 
 const NewTextField = styled(TextField)`
@@ -43,15 +25,9 @@ const NewTextField = styled(TextField)`
 `
 
 const NewButton = styled(Button)`
-    width: 30%;
+    width: 40%;
     margin-top: 15px;
     font-weight: bold;
-    background-color: #1100ab;
-
-    &:hover {
-        background-color: #1100ab;
-        opacity: 0.9;
-    }
 
     @media screen and (max-width: 500px){
         margin-top: 25px;
@@ -68,15 +44,8 @@ const NewButton = styled(Button)`
 
 const AnotherButton = styled(Button)`
     width: 40%;
-    text-decoration: underline;
     font-size: 12px;
     margin: 13px 0px;
-    color: #1100ab;
-
-    &:hover {
-        background-color: whitesmoke;
-        text-decoration: underline;
-    }
 
     @media screen and (max-width: 500px){
         margin: 25px 0px;
@@ -102,6 +71,7 @@ const inputData = {
 const Login = ({ setAccount }) =>{
     const [fieldData, setFieldData] = useState(inputData);
     const { setIsUser, setUser } = useContext(UserContext);
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -114,7 +84,9 @@ const Login = ({ setAccount }) =>{
     }
 
     const handleClick = async() => {
+        setLoading(true);
         const response = await handleClickLogin(inputData, fieldData, setFieldData);
+        setLoading(false);
 
         if (response){
             const { token } = response;
@@ -136,10 +108,9 @@ const Login = ({ setAccount }) =>{
 
     return (
         <NewBox>
-            <Loader />
-            <Typo>
-                Fill your login details!
-            </Typo>
+            <Backdrop open={loading} sx={(theme) => ({color: "#fff", zIndex: theme.zIndex.drawer + 1})}>
+                <CircularProgress color="inherit" />
+            </Backdrop>
 
             <Box>
                 <NewTextField required id = "username" label = "Enter your Username" onChange = {(e) => handleChange(e)} />
@@ -148,9 +119,9 @@ const Login = ({ setAccount }) =>{
             </Box>
 
             <StyledBox>
-                <NewButton variant = "contained" onClick = {() => handleClick()}>Log In</NewButton>
+                <NewButton variant = "contained" color="warning" onClick = {() => handleClick()}>Log In</NewButton>
                 <br />
-                <AnotherButton onClick = {() => handleChangeOption()}>Don't have an Account? Create Account</AnotherButton>
+                <AnotherButton variant = "outlined" onClick = {() => handleChangeOption()}>Don't have an Account?</AnotherButton>
             </StyledBox>
         </NewBox>
     ) 

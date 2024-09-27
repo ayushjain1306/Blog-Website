@@ -7,10 +7,7 @@ const URL = process.env.URL;
 
 async function connectionWithDatabase() {
     try {
-        await mongoose.connect(URL, {
-            useUnifiedTopology: 'true',
-            useNewURLParser: "true"
-        });
+        await mongoose.connect(URL);
 
         console.log("Database Connected Successfully.");
     }

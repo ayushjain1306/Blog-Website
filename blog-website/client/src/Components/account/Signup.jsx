@@ -1,22 +1,10 @@
 import React, { useState } from "react";
-import { Box, Typography, Button, TextField, styled } from "@mui/material";
+import { Box, Backdrop, CircularProgress, Button, TextField, styled } from "@mui/material";
 import { handleClickSignin } from "./handleClick.js";
 import Loader from "../../Loader.jsx";
 
 const NewBox = styled(Box)`
     text-align: center;
-`
-
-const Typo = styled(Typography)`
-    color: #1100ab;
-    font-weight: bold;
-    margin-top: 1vh;
-
-    @media screen and (max-width: 500px){
-        font-size: 18px;
-        margin-top: 1.5vh;
-        margin-bottom: 1.5vh;
-    }
 `
 
 const NewTextField = styled(TextField)`
@@ -34,15 +22,9 @@ const NewTextField = styled(TextField)`
 `
 
 const NewButton = styled(Button)`
-    width: 30%;
+    width: 40%;
     margin-top: 3.5vh;
     font-weight: bold;
-    background-color: #1100ab;
-
-    &:hover {
-        background-color: #1100ab;
-        opacity: 0.9;
-    }
 
     @media screen and (max-width: 500px){
         margin-top: 25px;
@@ -71,15 +53,8 @@ const AnotherBox = styled(Box)`
 
 const AnotherButton = styled(Button)`
     width: 40%;
-    text-decoration: underline;
     font-size: 12px;
     margin: 13px 0px;
-    color: #1100ab;
-
-    &:hover {
-        background-color: whitesmoke;
-        text-decoration: underline;
-    }    
 
     @media screen and (max-width: 500px){
         margin: 25px 0px;
@@ -100,39 +75,45 @@ const inputData = {
     password: ""
 }
 
-const Signup = ({ setAccount }) =>{
+const Signup = ({ setAccount }) => {
     const [fieldData, setFieldData] = useState(inputData);
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (e) => {
-        setFieldData({...fieldData, [e.target.id]: e.target.value});
+        setFieldData({ ...fieldData, [e.target.id]: e.target.value });
     }
 
     const handleChangeOption = () => {
         setAccount("login");
     }
 
+    const handleClick = async () => {
+        setLoading(true);
+        await handleClickSignin(inputData, fieldData, setFieldData);
+        setLoading(false);
+    }
+
     return (
         <NewBox>
-            <Loader />
-            <Typo>
-                Create your Account
-            </Typo>
+            <Backdrop open={loading} sx={(theme) => ({ color: "#fff", zIndex: theme.zIndex.drawer + 1 })}>
+                <CircularProgress color="inherit" />
+            </Backdrop>
 
             <AnotherBox>
-                <NewTextField id = "name" label = "Enter your Name" required onChange = {(e) => handleChange(e)} />
-                <NewTextField id = "email" label = "Enter your Email address" required onChange = {(e) => handleChange(e)} />
+                <NewTextField id="name" label="Enter your Name" required onChange={(e) => handleChange(e)} />
+                <NewTextField id="email" label="Enter your Email address" required onChange={(e) => handleChange(e)} />
             </AnotherBox>
 
             <AnotherBox>
-                <NewTextField id = "username" label = "Create your Username" required onChange = {(e) => handleChange(e)} />
-                <NewTextField id = "password" type = "password" label = "Create your Password" required onChange = {(e) => handleChange(e)} />
+                <NewTextField id="username" label="Create your Username" required onChange={(e) => handleChange(e)} />
+                <NewTextField id="password" type="password" label="Create your Password" required onChange={(e) => handleChange(e)} />
             </AnotherBox>
 
-            <NewButton variant = "contained" onClick = {() => handleClickSignin(inputData, fieldData, setFieldData)}>Sign Up</NewButton>
+            <NewButton variant="contained" color="warning" onClick={() => handleClick()}>Sign Up</NewButton>
             <br />
-            <AnotherButton onClick = {() => handleChangeOption()}>Already have an Account?</AnotherButton>
+            <AnotherButton variant="outlined" onClick={() => handleChangeOption()}>Already have an Account?</AnotherButton>
         </NewBox>
-    ) 
+    )
 }
 
 export default Signup;

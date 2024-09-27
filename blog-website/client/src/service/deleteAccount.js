@@ -1,7 +1,6 @@
 import axios from "axios";
 import Cookies from "js-cookie";
-
-const URL = "https://blog-website-nine-lemon.vercel.app";
+import { URL } from "../utils/backendURL.js";
 
 async function deleteAccount(data, token){
     try {

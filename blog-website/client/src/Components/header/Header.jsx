@@ -7,7 +7,6 @@ const Appbar = styled(AppBar)`
     height: 9vh;
     margin: 0px;
     padding: 0px;
-    background-color: #1100ab;
     width: 100%;
 `
 
@@ -15,13 +14,8 @@ const ToolBar = styled(Toolbar)`
     height: 9vh;
     padding: 0px;
     margin: 0px;
-    background-color: #1100ab;
-    width: 100vw;
-
-    @media screen and (min-width: 600px){
-        padding: 0px;
-        margin: 0px;
-    }
+    width: 100%;
+    background-color: white;
 `
 
 const Header = () => {

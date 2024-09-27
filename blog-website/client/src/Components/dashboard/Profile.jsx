@@ -11,7 +11,7 @@ import { UserContext } from "../../context/userContext.js";
 import extractBlogs from "../../redux/actions/extractBlogs.js";
 
 const NewBox = styled(Box)`
-    background-color: rgb(0 150 136 / 15%);
+    background-color: #ebebe9;
     min-height: 100vh;
 `
 

@@ -27,7 +27,7 @@ const NewList = styled(List)`
 const ListItems = styled(ListItem)`
     list-style: none;
     width: 15%;
-    font-weight: bold;
+    font-weight: 600;
 
     @media screen and (min-width: 500px) and (max-width: 1100px){
         font-size: 25px;
@@ -37,13 +37,7 @@ const ListItems = styled(ListItem)`
 const NewButton = styled(Button)`
     width: 25%;
     font-weight: bold;
-    background-color: whitesmoke;
-    color: #1100ab;
     margin-left: 2vw;
-
-    &:hover {
-        background-color: white;
-    }
 
     @media screen and (min-width: 500px) and (max-width: 1100px){
         margin-left: 4vw;
@@ -52,7 +46,7 @@ const NewButton = styled(Button)`
 `
 
 const NewLink = styled(Link)`
-    color: white;
+    color: black;
     text-decoration: none;
 `
 
@@ -79,7 +73,7 @@ const SecondSection = () => {
         <NewBox>
             <NewList>
                 <ListItems><NewLink to ="/">Home</NewLink></ListItems>
-                <NewButton variant = "contained" onClick={() => handleClick()}>
+                <NewButton variant = "outlined" onClick={() => handleClick()}>
                     <Image src={userImage} alt="user" />
                     <Typo>{user.username}</Typo>
                 </NewButton>

@@ -4,6 +4,7 @@ import Slider from "./Slider.jsx";
 import LatestBlogs from "./LatestBlogs.jsx";
 
 const NewBox = styled(Box)`
+    width: 100%;
 `
 
 const categories = [

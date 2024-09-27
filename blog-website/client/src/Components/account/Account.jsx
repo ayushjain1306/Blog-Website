@@ -7,16 +7,15 @@ import logo from "./images/logo.png";
 
 const NewBox = styled(Box)`
     width: 50%;
-    border-radius: 5px;
-    height: 66vh;
+    border-radius: 3px;
+    height: 62vh;
     margin: auto;
-    background-color: whitesmoke;
+    box-shadow: 8px 8px 8px -3px rgb(0, 0, 0, 0.2);
+    background-color: white;
 
     @media screen and (max-width: 500px){
-        width: 100vw;
-        height: 90vh;
-        background-color: rgba(25, 118, 210, 0.1);
-        padding-top: 10vh;
+        width: 85%;
+        height: 72vh;
     }
 
     @media screen and (min-width: 500px) and (max-width: 1100px){
@@ -25,19 +24,11 @@ const NewBox = styled(Box)`
 `
     
 const Container = styled(Box)`
-    min-height: 80vh;
-    padding-top: 17vh;
-    background-color: rgba(25, 118, 210, 0.3);
-
-    @media screen and (max-width: 500px){
-        padding-top: 0px;
-        height: vh;
-        background-color: white;
-    }
-
-    @media screen and (min-width: 500px) and (max-width: 1100px){
-        height: 100vh;
-    }
+    height: 100vh;
+    background-color: #ebebe9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 const AnotherBox = styled(Box)`

@@ -15,7 +15,7 @@ import { UserContext } from "../../context/userContext.js";
 const NewBox = styled(Box)`
     padding-top: 13vh;
     min-height: 100vh;
-    background-color: rgb(0 150 136 / 15%);
+    background-color: #ebebe9;
     width: 100%;
     padding-bottom: 8vh;
 `

@@ -16,18 +16,8 @@ const NewBox = styled(Box)`
 `
 
 const NewButton = styled(Button)`
-    background-color: #1100ab;
     width: 45%;
     font-weight: bold;
-
-    &: hover {
-        background-color: #1100ab;
-        opacity: 0.9;
-    }
-
-    @media screen and (max-width: 500px){
-
-    }
 
     @media screen and (min-width: 500px) and (max-width: 1100px){
         font-size: 20px;
@@ -98,7 +88,7 @@ const Buttons = ({ inputData, fieldData, image, setFieldData }) => {
 
     return (
         <NewBox>
-            <NewButton variant = "contained" onClick = {() => handleSave()}>Save</NewButton>
+            <NewButton variant = "contained" color="warning" onClick = {() => handleSave()}>Save</NewButton>
             <NewButton variant = "contained" onClick = {() => handleDiscard()}>Discard</NewButton>
 
             {

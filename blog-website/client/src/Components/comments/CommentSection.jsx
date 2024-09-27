@@ -7,7 +7,8 @@ const NewBox = styled(Box)`
     padding: 5vh 5vw;
     margin: 5vh 10vw 10vh 10vw;
     background-color: white;
-    border-radius: 10px;
+    box-shadow: 8px 8px 8px -3px rgb(0, 0, 0, 0.2);
+    border-radius: 3px;
     
     @media screen and (max-width: 1100px){
         margin-left: 5vw;

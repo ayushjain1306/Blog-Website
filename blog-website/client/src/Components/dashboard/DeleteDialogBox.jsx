@@ -27,8 +27,8 @@ const DeleteDialogBox = ({ open, setOpen }) => {
                 </DialogContentText>
             </DialogContent>
             <DialogActions>
-                <Button style={{color: "#1100ab", fontWeight: "bold"}} onClick={() => handleClose()}>Cancel</Button>
-                <Button style={{color: "#1100ab", fontWeight: "bold"}} onClick={() => handleClick()}>Delete</Button>
+                <Button variant="contained" onClick={() => handleClose()}>Cancel</Button>
+                <Button variant="contained" color="error" onClick={() => handleClick()}>Delete</Button>
             </DialogActions>
         </Dialog>
     )

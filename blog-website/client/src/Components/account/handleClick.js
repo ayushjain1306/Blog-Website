@@ -1,6 +1,6 @@
 import { performSignup, performLogin } from "../../service/accountWork.js";
 
-export function handleClickSignin(inputData, fieldData, setFieldData) {
+export async function handleClickSignin(inputData, fieldData, setFieldData) {
     if (fieldData.name === "" || 
         fieldData.email === "" ||
         fieldData.username === "" ||
@@ -9,7 +9,7 @@ export function handleClickSignin(inputData, fieldData, setFieldData) {
         return;
     }
 
-    performSignup(fieldData);
+    await performSignup(fieldData);
 }
 
 export async function handleClickLogin(inputData, fieldData, setFieldData){

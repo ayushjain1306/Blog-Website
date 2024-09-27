@@ -36,14 +36,15 @@ const AnotherBox = styled(Box)`
 `
 
 const StyledBox = styled(Box)`
-    border: 2px solid white;
+    border: 2px solid black;
     border-radius: 10px;
     margin-top: 5px;
 `
 
 const Typo = styled(Typography)`
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
+    color: #1100ab;
 
     @media screen and (min-width: 500px) and (max-width: 1100px){
         font-size: 30px;
